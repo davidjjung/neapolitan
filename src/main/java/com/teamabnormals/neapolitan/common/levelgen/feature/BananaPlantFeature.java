@@ -14,7 +14,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -93,7 +92,7 @@ public class BananaPlantFeature extends Feature<NoneFeatureConfiguration> {
 		}
 
 		if (isAirAt(level, pos, size) && pos.getY() < level.getMaxBuildHeight() - size) {
-			boolean canSpawnChimps = level.getBiome(pos).containsTag(NeapolitanBiomeTags.HAS_CHIMPANZEE);
+			boolean canSpawnChimps = level.getBiome(pos).is(NeapolitanBiomeTags.HAS_CHIMPANZEE);
 			boolean suspicious = canSpawnChimps && isGrass(level, pos.below()) && NeapolitanConfig.COMMON.suspiciousBananaPlants.get() && random.nextFloat() < NeapolitanConfig.COMMON.suspiciousBananaPlantChance.get();
 
 			for (BlockPos blockPos2 : stalks) {
@@ -196,7 +195,7 @@ public class BananaPlantFeature extends Feature<NoneFeatureConfiguration> {
 			double d1 = pos.getY() + random.nextInt(3) - 1;
 			double d2 = (double) pos.getZ() + (random.nextDouble() - random.nextDouble()) * (double) spawnRange + 0.5D;
 			if (level.noCollision(NeapolitanEntityTypes.CHIMPANZEE.get().getAABB(d0, d1, d2))) {
-				if (spawnedChimps < NeapolitanConfig.COMMON.chimpanzeeMaxGroupSize.get() && SpawnPlacements.checkSpawnRules(NeapolitanEntityTypes.CHIMPANZEE.get(), level, MobSpawnType.STRUCTURE, BlockPos.containing(d0, d1, d2), level.getRandom())) {
+				if (spawnedChimps < NeapolitanConfig.COMMON.chimpanzeeMaxGroupSize.get()) {
 					Chimpanzee chimp = NeapolitanEntityTypes.CHIMPANZEE.get().create(level.getLevel());
 					if (chimp != null) {
 						chimp.moveTo(d0, d1, d2, level.getRandom().nextFloat() * 360.0F, 0.0F);
