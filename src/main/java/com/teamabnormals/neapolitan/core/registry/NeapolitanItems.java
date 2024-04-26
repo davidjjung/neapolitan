@@ -142,55 +142,55 @@ public class NeapolitanItems {
 	public static final class NeapolitanFoods {
 		public static final FoodProperties ICE_CUBES = new FoodProperties.Builder().alwaysEat().build();
 
-		public static final FoodProperties CHOCOLATE_BAR = createFood(4, 0.25F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 400, 1), 1.0F).build();
-		public static final FoodProperties CHOCOLATE_SPIDER_EYE = createFood(2, 0.35F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 800), 1.0F).effect(() -> new MobEffectInstance(MobEffects.POISON, 80), 1.0F).build();
-		public static final FoodProperties CHOCOLATE_ICE_CREAM = createFood(6, 0.4F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 600, 2), 1.0F).build();
+		public static final FoodProperties CHOCOLATE_BAR = createFood(4, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 400, 1), 1.0F).build();
+		public static final FoodProperties CHOCOLATE_SPIDER_EYE = createFood(2, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 800), 1.0F).effect(() -> new MobEffectInstance(MobEffects.POISON, 80), 1.0F).build();
+		public static final FoodProperties CHOCOLATE_ICE_CREAM = createFood(6, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 600, 2), 1.0F).build();
 		public static final FoodProperties CHOCOLATE_CAKE = createFood(1, 0.1F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 200), 1.0F).build();
 		public static final FoodProperties CHOCOLATE_MILKSHAKE = createMilkshake(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 300, 2)).build();
 
-		public static final FoodProperties STRAWBERRIES = createFood(3, 0.05F).build();
-		public static final FoodProperties WHITE_STRAWBERRIES = createFood(5, 0.05F).build();
-		public static final FoodProperties STRAWBERRY_SCONES = createFood(5, 0.05F).build();
-		public static final FoodProperties STRAWBERRY_ICE_CREAM = createFood(6, 0.4F).build();
+		public static final FoodProperties STRAWBERRIES = createFood(3, 0.1F).build();
+		public static final FoodProperties WHITE_STRAWBERRIES = createFood(5, 0.1F).build();
+		public static final FoodProperties STRAWBERRY_SCONES = createFood(5, 0.1F).build();
+		public static final FoodProperties STRAWBERRY_ICE_CREAM = createFood(6, 0.3F).build();
 		public static final FoodProperties STRAWBERRY_CAKE = createFood(1, 0.1F).build();
-		public static final FoodProperties STRAWBERRY_MILKSHAKE = createFood(2, 1.5F).alwaysEat().build();
+		public static final FoodProperties STRAWBERRY_MILKSHAKE = createFood(2, 1.2F).alwaysEat().build();
 
-		public static final FoodProperties DRIED_VANILLA_PODS = createFood(1, 0.15F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.VANILLA_SCENT.get(), 200), 1.0F).build();
-		public static final FoodProperties VANILLA_FUDGE = createFood(3, 0.30F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.VANILLA_SCENT.get(), 100), 1.0F).build();
+		public static final FoodProperties DRIED_VANILLA_PODS = createFood(1, 0.1F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.VANILLA_SCENT.get(), 200), 1.0F).build();
+		public static final FoodProperties VANILLA_FUDGE = createFood(3, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.VANILLA_SCENT.get(), 100), 1.0F).build();
 		public static final FoodProperties VANILLA_PUDDING = createFood(6, 1.2F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.VANILLA_SCENT.get(), 300), 1.0F).build();
-		public static final FoodProperties VANILLA_ICE_CREAM = createFood(6, 0.4F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.VANILLA_SCENT.get(), 400), 1.0F).build();
+		public static final FoodProperties VANILLA_ICE_CREAM = createFood(6, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.VANILLA_SCENT.get(), 400), 1.0F).build();
 		public static final FoodProperties VANILLA_CAKE = createFood(1, 0.1F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.VANILLA_SCENT.get(), 100), 1.0F).build();
 		public static final FoodProperties VANILLA_MILKSHAKE = createMilkshake(() -> new MobEffectInstance(NeapolitanMobEffects.VANILLA_SCENT.get(), 200)).build();
 
-		public static final FoodProperties BANANA = createFood(2, 0.2F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.AGILITY.get(), 300), 1.0F).build();
+		public static final FoodProperties BANANA = createFood(2, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.AGILITY.get(), 300), 1.0F).build();
 		public static final FoodProperties BANANA_BREAD = createFood(5, 0.6F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.AGILITY.get(), 600), 1.0F).build();
 		public static final FoodProperties DRIED_BANANA = createFood(4, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.AGILITY.get(), 200), 1.0F).build();
-		public static final FoodProperties BANANA_ICE_CREAM = createFood(6, 0.4F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.AGILITY.get(), 1200), 1.0F).build();
+		public static final FoodProperties BANANA_ICE_CREAM = createFood(6, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.AGILITY.get(), 1200), 1.0F).build();
 		public static final FoodProperties BANANA_CAKE = createFood(1, 0.1F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.AGILITY.get(), 200), 1.0F).build();
 		public static final FoodProperties BANANA_MILKSHAKE = createMilkshake(() -> new MobEffectInstance(NeapolitanMobEffects.AGILITY.get(), 600)).build();
 
-		public static final FoodProperties MINT_LEAVES = createFood(2, 0.2F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 600), 1.0F).build();
-		public static final FoodProperties MINT_CHOPS = createFood(3, 0.4F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 900), 1.0F).meat().build();
-		public static final FoodProperties COOKED_MINT_CHOPS = createFood(7, 1.0F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 1200), 1.0F).meat().build();
-		public static final FoodProperties MINT_CANDIES = createFood(3, 0.5F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 2400), 1.0F).build();
-		public static final FoodProperties MINT_ICE_CREAM = createFood(6, 0.4F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 1600), 1.0F).build();
+		public static final FoodProperties MINT_LEAVES = createFood(2, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 600), 1.0F).build();
+		public static final FoodProperties MINT_CHOPS = createFood(3, 0.6F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 900), 1.0F).meat().build();
+		public static final FoodProperties COOKED_MINT_CHOPS = createFood(7, 1.2F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 1200), 1.0F).meat().build();
+		public static final FoodProperties MINT_CANDIES = createFood(3, 0.6F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 2400), 1.0F).build();
+		public static final FoodProperties MINT_ICE_CREAM = createFood(6, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 1600), 1.0F).build();
 		public static final FoodProperties MINT_CAKE = createFood(1, 0.1F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 300), 1.0F).build();
 		public static final FoodProperties MINT_MILKSHAKE = createMilkshake(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 800)).build();
 
-		public static final FoodProperties ROASTED_ADZUKI_BEANS = createFood(3, 0.4F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.HARMONY.get(), 100), 1.0F).build();
-		public static final FoodProperties ADZUKI_BUN = createFood(5, 0.4F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.HARMONY.get(), 300), 1.0F).build();
+		public static final FoodProperties ROASTED_ADZUKI_BEANS = createFood(3, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.HARMONY.get(), 100), 1.0F).build();
+		public static final FoodProperties ADZUKI_BUN = createFood(5, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.HARMONY.get(), 300), 1.0F).build();
 		public static final FoodProperties ADZUKI_STEW = createFood(8, 0.6F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.HARMONY.get(), 400), 1.0F).build();
-		public static final FoodProperties ADZUKI_ICE_CREAM = createFood(6, 0.4F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.HARMONY.get(), 600), 1.0F).build();
+		public static final FoodProperties ADZUKI_ICE_CREAM = createFood(6, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.HARMONY.get(), 600), 1.0F).build();
 		public static final FoodProperties ADZUKI_CAKE = createFood(1, 0.1F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.HARMONY.get(), 200), 1.0F).build();
 		public static final FoodProperties ADZUKI_MILKSHAKE = createMilkshake(() -> new MobEffectInstance(NeapolitanMobEffects.HARMONY.get(), 300)).build();
 
 		public static final FoodProperties CHOCOLATE_STRAWBERRIES = createFood(4, 0.1F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 200), 1.0F).build();
-		public static final FoodProperties VANILLA_CHOCOLATE_FINGERS = createFood(6, 0.55F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 200), 1.0F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.VANILLA_SCENT.get(), 100), 1.0F).build();
-		public static final FoodProperties STRAWBERRY_BANANA_SMOOTHIE = createFood(3, 0.05F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.AGILITY.get(), 600), 1.0F).build();
-		public static final FoodProperties MINT_CHOCOLATE = createFood(6, 0.55F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 200), 1.0F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 1200), 1.0F).build();
+		public static final FoodProperties VANILLA_CHOCOLATE_FINGERS = createFood(6, 0.6F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 200), 1.0F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.VANILLA_SCENT.get(), 100), 1.0F).build();
+		public static final FoodProperties STRAWBERRY_BANANA_SMOOTHIE = createFood(3, 0.1F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.AGILITY.get(), 600), 1.0F).build();
+		public static final FoodProperties MINT_CHOCOLATE = createFood(6, 0.6F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 200), 1.0F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.BERSERKING.get(), 1200), 1.0F).build();
 		public static final FoodProperties STRAWBERRY_BEAN_BONBONS = createFood(4, 0.1F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.HARMONY.get(), 100), 1.0F).build();
 		public static final FoodProperties ADZUKI_CURRY = createFood(6, 1.2F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.HARMONY.get(), 300), 1.0F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.AGILITY.get(), 300), 1.0F).build();
-		public static final FoodProperties NEAPOLITAN_ICE_CREAM = createFood(12, 0.4F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 400, 1), 1.0F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.VANILLA_SCENT.get(), 200), 1.0F).build();
+		public static final FoodProperties NEAPOLITAN_ICE_CREAM = createFood(12, 0.3F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.SUGAR_RUSH.get(), 400, 1), 1.0F).effect(() -> new MobEffectInstance(NeapolitanMobEffects.VANILLA_SCENT.get(), 200), 1.0F).build();
 
 		public static FoodProperties.Builder createFood(int nutrition, float saturation) {
 			return new FoodProperties.Builder().nutrition(nutrition).saturationMod(saturation);
