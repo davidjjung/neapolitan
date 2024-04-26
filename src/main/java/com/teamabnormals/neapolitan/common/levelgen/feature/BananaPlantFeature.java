@@ -1,6 +1,7 @@
 package com.teamabnormals.neapolitan.common.levelgen.feature;
 
 import com.mojang.serialization.Codec;
+import com.teamabnormals.blueprint.core.util.BlockUtil;
 import com.teamabnormals.neapolitan.common.block.BananaFrondBlock;
 import com.teamabnormals.neapolitan.common.entity.animal.Chimpanzee;
 import com.teamabnormals.neapolitan.core.NeapolitanConfig;
@@ -10,15 +11,21 @@ import com.teamabnormals.neapolitan.core.registry.NeapolitanBlocks;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Direction.Axis;
+import net.minecraft.core.Direction.Plane;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour.BlockStateBase;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
@@ -118,14 +125,29 @@ public class BananaPlantFeature extends Feature<NoneFeatureConfiguration> {
 			if (isGrass(level, pos.below())) {
 				level.setBlock(pos.below(), Blocks.GRAVEL.defaultBlockState(), 19);
 
+				boolean chimpHead = suspicious && random.nextFloat() < 0.25F;
+
 				int horizontalRange = (suspicious ? 3 : 2) + random.nextInt(2);
-				int verticalMin = suspicious ? -9 : -2;
+				int verticalMin = suspicious ? -8 : -2;
 
 				int rareSusGravel = 0;
 				int commonSusGravel = 0;
 
 				int rareSusGravelMax = NeapolitanConfig.COMMON.rareSuspiciousGravelMin.get() + random.nextInt(2);
 				int susGravelAmount = 8 + random.nextInt(3) + random.nextInt(2);
+
+				if (chimpHead) {
+					int moreGravel = 2 + random.nextInt(3);
+					rareSusGravelMax += moreGravel;
+					susGravelAmount += moreGravel - 1;
+
+					Direction facing = Plane.HORIZONTAL.getRandomDirection(random);
+					generateChimpHead(level, pos
+							.relative(facing, random.nextInt(2))
+							.relative(facing.getClockWise(), 1 + random.nextInt(2))
+							.below(3 + random.nextInt(3)), facing, random);
+				}
+
 
 				for (int x = -horizontalRange; x <= horizontalRange; x++) {
 					for (int y = verticalMin; y < 2; y++) {
@@ -178,6 +200,53 @@ public class BananaPlantFeature extends Feature<NoneFeatureConfiguration> {
 		}
 
 		return false;
+	}
+
+	private static void generateChimpHead(WorldGenLevel level, BlockPos origin, Direction facing, RandomSource random) {
+		BlockPos.betweenClosedStream(origin, origin.below(3).relative(facing.getOpposite(), 2).relative(facing.getCounterClockWise(), 3)).map(BlockPos::immutable).forEach(
+				pos -> placeMossyBlock(level, random, null, pos, 0, 0, 0, Blocks.COBBLESTONE.defaultBlockState())
+		);
+
+		placeMossyBlock(level, random, facing, origin, -1, -1, -1, Blocks.COBBLESTONE.defaultBlockState());
+		placeMossyBlock(level, random, facing, origin, 4, -1, -1, Blocks.COBBLESTONE.defaultBlockState());
+
+		placeMossyBlock(level, random, facing, origin, -1, 0, -1, Blocks.COBBLESTONE_SLAB.defaultBlockState());
+		placeMossyBlock(level, random, facing, origin, 4, 0, -1, Blocks.COBBLESTONE_SLAB.defaultBlockState());
+
+		placeMossyBlock(level, random, facing, origin, 1, -1, 0, Blocks.COBBLESTONE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, facing.getCounterClockWise()));
+		placeMossyBlock(level, random, facing, origin, 2, -1, 0, Blocks.COBBLESTONE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, facing.getClockWise()));
+
+		placeMossyBlock(level, random, facing, origin, 1, -1, 1, Blocks.COBBLESTONE_SLAB.defaultBlockState());
+		placeMossyBlock(level, random, facing, origin, 2, -1, 1, Blocks.COBBLESTONE_SLAB.defaultBlockState());
+		placeMossyBlock(level, random, facing, origin, 1, -2, 1, Blocks.COBBLESTONE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, facing.getClockWise()).setValue(StairBlock.HALF, Half.TOP));
+		placeMossyBlock(level, random, facing, origin, 2, -2, 1, Blocks.COBBLESTONE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, facing.getCounterClockWise()).setValue(StairBlock.HALF, Half.TOP));
+		placeMossyBlock(level, random, facing, origin, 1, -3, 1, Blocks.COBBLESTONE.defaultBlockState());
+		placeMossyBlock(level, random, facing, origin, 2, -3, 1, Blocks.COBBLESTONE.defaultBlockState());
+	}
+
+	private static void placeMossyBlock(WorldGenLevel level, RandomSource random, Direction facing, BlockPos pos, int x, int y, int z, BlockState state) {
+		if (random.nextFloat() < 0.4F) {
+			Block block = state.is(Blocks.COBBLESTONE) ? Blocks.MOSSY_COBBLESTONE : state.is(Blocks.COBBLESTONE_SLAB) ? Blocks.MOSSY_COBBLESTONE_SLAB : Blocks.MOSSY_COBBLESTONE_STAIRS;
+			state = BlockUtil.transferAllBlockStates(state, block.defaultBlockState());
+		}
+
+		if (facing != null) {
+			if (facing.getAxis() == Axis.X) {
+				int temp = x;
+				x = z;
+				z = temp - 3;
+
+				if (state.hasProperty(StairBlock.FACING)) {
+					state = state.setValue(StairBlock.FACING, state.getValue(StairBlock.FACING).getOpposite());
+				}
+			}
+
+			x *= facing.getAxisDirection().getStep();
+			z *= facing.getAxisDirection().getStep();
+		}
+
+		level.setBlock(pos.offset(x, y, z), state, 19);
+
 	}
 
 	private static void spawnChimps(WorldGenLevel level, BlockPos pos) {
