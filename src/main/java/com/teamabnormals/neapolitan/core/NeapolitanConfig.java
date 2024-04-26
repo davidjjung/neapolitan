@@ -57,7 +57,7 @@ public class NeapolitanConfig {
 			builder.push("worldgen");
 			builder.push("suspicious_banana_plant");
 			suspiciousBananaPlants = builder.comment("If Banana Plants can rarely generate with Suspicious Gravel and archaeology").define("Suspicious Banana Plants", true);
-			suspiciousBananaPlantChance = builder.comment("The percentage chance for a Suspicious Banana Plant to generate").define("Suspicious Banana Plant chance", 0.05D);
+			suspiciousBananaPlantChance = builder.comment("The percentage chance for a Suspicious Banana Plant to generate").define("Suspicious Banana Plant chance", 0.08D);
 			suspiciousGravelMin = builder.comment("The minimum amount of Suspicious Gravel total that can spawn at a Suspicious Banana Plant").define("Common Suspicious Gravel minimum", 8);
 			rareSuspiciousGravelMin = builder.comment("The minimum amount of Suspicious Gravel with the rare archaeology loot table that can spawn at a Suspicious Banana Plant").define("Rare Suspicious Gravel minimum", 2);
 			builder.pop();
