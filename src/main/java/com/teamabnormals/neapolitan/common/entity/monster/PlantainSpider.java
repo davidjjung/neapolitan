@@ -13,6 +13,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 
 import javax.annotation.Nullable;
@@ -22,8 +23,8 @@ public class PlantainSpider extends Spider {
 		super(type, worldIn);
 	}
 
-	public static boolean canPlantainSpiderSpawn(EntityType<? extends Monster> type, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-		return pos.getY() > 60 && checkMonsterSpawnRules(type, worldIn, reason, pos, randomIn);
+	public static boolean canPlantainSpiderSpawn(EntityType<? extends Monster> type, ServerLevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
+		return level.getLevel().isRaining() && level.getBrightness(LightLayer.SKY, pos) > 11 && checkMonsterSpawnRules(type, level, reason, pos, randomIn);
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {

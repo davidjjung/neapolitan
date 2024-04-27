@@ -10,7 +10,6 @@ public class NeapolitanBiomeTags {
 	public static final TagKey<Biome> SPAWNS_BAMBOO_VARIANT_CHIMPANZEES = biomeTag("spawns_bamboo_variant_chimpanzees");
 
 	public static final TagKey<Biome> HAS_CHIMPANZEE = biomeTag("has_animal/chimpanzee");
-	public static final TagKey<Biome> HAS_PLANTAIN_SPIDER = biomeTag("has_monster/plantain_spider");
 
 	public static final TagKey<Biome> HAS_STRAWBERRY_BUSH = biomeTag("has_feature/strawberry_bush");
 	public static final TagKey<Biome> HAS_ADZUKI_SPROUTS = biomeTag("has_feature/adzuki_sprouts");
