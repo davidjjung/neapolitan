@@ -213,6 +213,8 @@ public class BananaPlantFeature extends Feature<NoneFeatureConfiguration> {
 		placeMossyBlock(level, random, facing, origin, -1, 0, -1, Blocks.COBBLESTONE_SLAB.defaultBlockState());
 		placeMossyBlock(level, random, facing, origin, 4, 0, -1, Blocks.COBBLESTONE_SLAB.defaultBlockState());
 
+		placeMossyBlock(level, random, facing, origin, 1, -1, -1, Blocks.EMERALD_BLOCK.defaultBlockState());
+		placeMossyBlock(level, random, facing, origin, 2, -1, -1, Blocks.EMERALD_BLOCK.defaultBlockState());
 		placeMossyBlock(level, random, facing, origin, 1, -1, 0, Blocks.COBBLESTONE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, facing.getCounterClockWise()));
 		placeMossyBlock(level, random, facing, origin, 2, -1, 0, Blocks.COBBLESTONE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, facing.getClockWise()));
 
@@ -225,7 +227,9 @@ public class BananaPlantFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	private static void placeMossyBlock(WorldGenLevel level, RandomSource random, Direction facing, BlockPos pos, int x, int y, int z, BlockState state) {
-		if (random.nextFloat() < 0.4F) {
+		if (state.is(Blocks.EMERALD_BLOCK)) {
+			if (random.nextBoolean()) return;
+		} else if (random.nextFloat() < 0.4F) {
 			Block block = state.is(Blocks.COBBLESTONE) ? Blocks.MOSSY_COBBLESTONE : state.is(Blocks.COBBLESTONE_SLAB) ? Blocks.MOSSY_COBBLESTONE_SLAB : Blocks.MOSSY_COBBLESTONE_STAIRS;
 			state = BlockUtil.transferAllBlockStates(state, block.defaultBlockState());
 		}
@@ -246,7 +250,6 @@ public class BananaPlantFeature extends Feature<NoneFeatureConfiguration> {
 		}
 
 		level.setBlock(pos.offset(x, y, z), state, 19);
-
 	}
 
 	private static void spawnChimps(WorldGenLevel level, BlockPos pos) {
