@@ -20,6 +20,7 @@ public class NeapolitanConstants {
 	public static final ResourceLocation SPARSE_RAINFOREST_BASIN = new ResourceLocation(ATMOSPHERIC, "sparse_rainforest_basin");
 	public static final ResourceLocation FOUL_TASTE = new ResourceLocation(AUTUMNITY, "foul_taste");
 	public static final ResourceLocation SANGUINE_HELMET = new ResourceLocation(CAVERNS_AND_CHASMS, "sanguine_helmet");
+	public static final ResourceLocation TMT = new ResourceLocation(CAVERNS_AND_CHASMS, "tmt");
 	public static final ResourceLocation BOLLOOM_BALLOON = new ResourceLocation(ENDERGETIC, "bolloom_balloon");
 	public static final ResourceLocation BOLLOOM_FRUIT = new ResourceLocation(ENDERGETIC, "bolloom_fruit");
 	public static final ResourceLocation MUD_BALL = new ResourceLocation(ENVIRONMENTAL, "mud_ball");

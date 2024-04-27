@@ -7,6 +7,10 @@
     "minecraft:lightning_bolt",
     "minecraft:small_fireball",
     "minecraft:tnt",
-    "minecraft:wither_skull"
+    "minecraft:wither_skull",
+    {
+      "id": "caverns_and_chasms:tmt",
+      "required": false
+    }
   ]
 }
