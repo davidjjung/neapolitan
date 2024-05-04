@@ -1,14 +1,20 @@
 package com.teamabnormals.neapolitan.core.data.server.tags;
 
+import com.teamabnormals.blueprint.core.other.tags.BlueprintBiomeTags;
 import com.teamabnormals.neapolitan.core.Neapolitan;
 import com.teamabnormals.neapolitan.core.other.NeapolitanConstants;
 import com.teamabnormals.neapolitan.core.other.tags.NeapolitanBiomeTags;
+import com.teamabnormals.neapolitan.core.registry.NeapolitanBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
@@ -21,6 +27,12 @@ public class NeapolitanBiomeTagsProvider extends BiomeTagsProvider {
 
 	@Override
 	protected void addTags(HolderLookup.Provider provider) {
+		this.tag(NeapolitanBiomes.STRAWBERRY_FIELDS,
+				BiomeTags.IS_OVERWORLD,
+				BiomeTags.HAS_MINESHAFT, BiomeTags.STRONGHOLD_BIASED_TO, BiomeTags.HAS_RUINED_PORTAL_STANDARD,
+				BlueprintBiomeTags.IS_GRASSLAND, Tags.Biomes.IS_PLAINS, Tags.Biomes.IS_RARE
+		);
+
 		this.tag(NeapolitanBiomeTags.SPAWNS_RAINFOREST_VARIANT_CHIMPANZEES).addOptionalTag(NeapolitanConstants.IS_RAINFOREST);
 		this.tag(NeapolitanBiomeTags.SPAWNS_BAMBOO_VARIANT_CHIMPANZEES).add(Biomes.BAMBOO_JUNGLE);
 
@@ -35,5 +47,12 @@ public class NeapolitanBiomeTagsProvider extends BiomeTagsProvider {
 		this.tag(NeapolitanBiomeTags.HAS_UNCOMMON_BANANA_PLANT).add(Biomes.SPARSE_JUNGLE).addOptional(NeapolitanConstants.SPARSE_RAINFOREST).addOptional(NeapolitanConstants.SPARSE_RAINFOREST_BASIN);
 		this.tag(NeapolitanBiomeTags.HAS_RARE_BANANA_PLANT).add(Biomes.BEACH, Biomes.STONY_SHORE);
 		this.tag(NeapolitanBiomeTags.BANANA_PLANT_REQUIRES_SAND).add(Biomes.BEACH);
+	}
+
+	@SafeVarargs
+	private void tag(ResourceKey<Biome> biome, TagKey<Biome>... tags) {
+		for (TagKey<Biome> key : tags) {
+			tag(key).add(biome);
+		}
 	}
 }
