@@ -17,7 +17,7 @@ public class NeapolitanGeneration {
 		BiomeDefaultFeatures.addDefaultOres(generation);
 		BiomeDefaultFeatures.addDefaultSoftDisks(generation);
 		generation.addFeature(Decoration.VEGETAL_DECORATION, TREES_STRAWBERRY_FIELDS);
-		generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, FLOWER_STRAWBERRY_FIELDS);
+		generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.FLOWER_PLAINS);
 		generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, SINGLE_CORNFLOWER);
 		generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_PLAIN);
 		BiomeDefaultFeatures.addDefaultMushrooms(generation);
