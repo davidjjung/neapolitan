@@ -101,7 +101,7 @@ public class NeapolitanFeatures {
 			register(context, BANANA_PLANT_COMMON, NeapolitanConfiguredFeatures.BANANA_PLANT, PlacementUtils.countExtra(0, 0.25F, 3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 			register(context, BANANA_PLANT_UNCOMMON, NeapolitanConfiguredFeatures.BANANA_PLANT, PlacementUtils.countExtra(0, 0.1F, 1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 			register(context, BANANA_PLANT_RARE, NeapolitanConfiguredFeatures.BANANA_PLANT, PlacementUtils.countExtra(0, 0.05F, 1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
-			register(context, SINGLE_CORNFLOWER, NeapolitanConfiguredFeatures.SINGLE_CORNFLOWER, NoiseThresholdCountPlacement.of(-0.8D, 10, 3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.wouldSurvive(Blocks.CORNFLOWER.defaultBlockState(), BlockPos.ZERO))));
+			register(context, SINGLE_CORNFLOWER, NeapolitanConfiguredFeatures.SINGLE_CORNFLOWER, NoiseThresholdCountPlacement.of(-0.8D, 15, 3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.wouldSurvive(Blocks.CORNFLOWER.defaultBlockState(), BlockPos.ZERO))));
 			register(context, TREES_STRAWBERRY_FIELDS, NeapolitanConfiguredFeatures.TREES_STRAWBERRY_FIELDS, VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
 		}
 
