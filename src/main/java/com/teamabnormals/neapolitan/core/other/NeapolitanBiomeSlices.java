@@ -30,7 +30,7 @@ public final class NeapolitanBiomeSlices {
 		List<Pair<ParameterPoint, ResourceKey<Biome>>> entries = new ArrayList<>();
 		new NeapolitanBiomeBuilder().addBiomes(entries::add);
 
-		context.register(STRAWBERRY_SLICE, new ModdedBiomeSlice(25, MultiNoiseModdedBiomeProvider.builder().biomes(entries::forEach)
+		context.register(STRAWBERRY_SLICE, new ModdedBiomeSlice(20, MultiNoiseModdedBiomeProvider.builder().biomes(entries::forEach)
 				.area(STRAWBERRY_FIELDS_AREA, STRAWBERRY_FIELDS)
 				.build(), LevelStem.OVERWORLD));
 	}
