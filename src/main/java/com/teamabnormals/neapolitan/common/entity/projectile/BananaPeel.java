@@ -8,6 +8,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -17,6 +18,7 @@ import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
 
@@ -107,6 +109,13 @@ public class BananaPeel extends Entity {
 			}
 			return true;
 		}
+	}
+
+	public void throwPeel(float pitch, float yaw, double xSpeed, double ySpeed, double zSpeed, float uncertainty) {
+		float f = -Mth.sin(yaw * Mth.DEG_TO_RAD) * Mth.cos(pitch * Mth.DEG_TO_RAD) * 0.6F;
+		float f1 = -Mth.sin(pitch * Mth.DEG_TO_RAD) * 0.6F;
+		float f2 = Mth.cos(yaw * Mth.DEG_TO_RAD) * Mth.cos(pitch * Mth.DEG_TO_RAD) * 0.6F;
+		this.setDeltaMovement(new Vec3(f, f1, f2).add(xSpeed, ySpeed, zSpeed).add(this.random.triangle(0.0D, 0.0172275D * (double) uncertainty), this.random.triangle(0.0D, 0.0172275D * (double) uncertainty), this.random.triangle(0.0D, 0.0172275D * (double) uncertainty)));
 	}
 
 	public int getAge() {

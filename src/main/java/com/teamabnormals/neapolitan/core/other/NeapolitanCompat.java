@@ -2,6 +2,7 @@ package com.teamabnormals.neapolitan.core.other;
 
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import com.teamabnormals.blueprint.core.util.DataUtil.CustomNoteBlockInstrument;
+import com.teamabnormals.neapolitan.common.dispenser.BananaBunchDispenseBehavior;
 import com.teamabnormals.neapolitan.common.entity.projectile.Bananarrow;
 import com.teamabnormals.neapolitan.core.Neapolitan;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanBlocks;
@@ -155,6 +156,8 @@ public class NeapolitanCompat {
 	}
 
 	public static void registerDispenserBehaviors() {
+		DispenserBlock.registerBehavior(NeapolitanItems.BANANA_BUNCH.get(), new BananaBunchDispenseBehavior());
+
 		DispenserBlock.registerBehavior(NeapolitanItems.BANANARROW.get(), new AbstractProjectileDispenseBehavior() {
 			@Override
 			protected Projectile getProjectile(Level worldIn, Position position, ItemStack stackIn) {
@@ -162,13 +165,12 @@ public class NeapolitanCompat {
 			}
 		});
 
-		DispenseItemBehavior armorDispenseBehavior = new OptionalDispenseItemBehavior() {
+		DispenserBlock.registerBehavior(NeapolitanItems.CHIMPANZEE_HEAD.get(), new OptionalDispenseItemBehavior() {
+			@Override
 			protected ItemStack execute(BlockSource source, ItemStack stack) {
 				this.setSuccess(ArmorItem.dispenseArmor(source, stack));
 				return stack;
 			}
-		};
-
-		DispenserBlock.registerBehavior(NeapolitanItems.CHIMPANZEE_HEAD.get(), armorDispenseBehavior);
+		});
 	}
 }
