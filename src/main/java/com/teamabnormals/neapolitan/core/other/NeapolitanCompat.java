@@ -1,25 +1,19 @@
 package com.teamabnormals.neapolitan.core.other;
 
 import com.teamabnormals.blueprint.core.util.DataUtil;
-import com.teamabnormals.blueprint.core.util.DataUtil.CustomNoteBlockInstrument;
 import com.teamabnormals.neapolitan.common.dispenser.BananaBunchDispenseBehavior;
 import com.teamabnormals.neapolitan.common.entity.projectile.Bananarrow;
-import com.teamabnormals.neapolitan.core.Neapolitan;
-import com.teamabnormals.neapolitan.core.registry.NeapolitanBlocks;
-import com.teamabnormals.neapolitan.core.registry.NeapolitanDecoratedPotPatterns;
-import com.teamabnormals.neapolitan.core.registry.NeapolitanItems;
-import com.teamabnormals.neapolitan.core.registry.NeapolitanSoundEvents;
+import com.teamabnormals.neapolitan.core.registry.*;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.Position;
 import net.minecraft.core.dispenser.AbstractProjectileDispenseBehavior;
-import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 
 public class NeapolitanCompat {
@@ -35,6 +29,7 @@ public class NeapolitanCompat {
 		registerFlammables();
 		registerDispenserBehaviors();
 		registerAnimalFoods();
+		registerParrotImitations();
 		NeapolitanSoundEvents.registerNoteBlocks();
 		NeapolitanDecoratedPotPatterns.registerDecoratedPotPatterns();
 		NeapolitanCauldronInteractions.registerCauldronInteractions();
@@ -172,5 +167,9 @@ public class NeapolitanCompat {
 				return stack;
 			}
 		});
+	}
+
+	private static void registerParrotImitations() {
+		DataUtil.registerParrotImitation(NeapolitanEntityTypes.PLANTAIN_SPIDER.get(), SoundEvents.PARROT_IMITATE_SPIDER);
 	}
 }

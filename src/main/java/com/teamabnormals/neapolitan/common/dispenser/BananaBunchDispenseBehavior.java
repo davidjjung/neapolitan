@@ -19,7 +19,7 @@ public class BananaBunchDispenseBehavior extends DefaultDispenseItemBehavior {
 
 		float yaw = direction.toYRot();
 		float pitch = direction.getStepY() * -90.0F;
-		
+
 		BananaPeel bananapeel = NeapolitanEntityTypes.BANANA_PEEL.get().create(source.getLevel());
 		bananapeel.moveTo(position.x(), position.y(), position.z(), yaw, 0.0F);
 		bananapeel.throwPeel(pitch, yaw, 0.0D, 0.0D, 0.0D, 6.0F);
