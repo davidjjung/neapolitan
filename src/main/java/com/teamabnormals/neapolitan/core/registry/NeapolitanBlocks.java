@@ -249,48 +249,48 @@ public class NeapolitanBlocks {
 
 		public static final BlockBehaviour.Properties CAULDRON = BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(2.0F).noOcclusion();
 
-		public static final BlockBehaviour.Properties CHOCOLATE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD);
-		public static final BlockBehaviour.Properties CHOCOLATE_BRICKS = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD);
-		public static final BlockBehaviour.Properties CHOCOLATE_TILES = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD);
+		public static final BlockBehaviour.Properties CHOCOLATE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).ignitedByLava().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD);
+		public static final BlockBehaviour.Properties CHOCOLATE_BRICKS = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).ignitedByLava().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD);
+		public static final BlockBehaviour.Properties CHOCOLATE_TILES = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).ignitedByLava().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD);
 
-		public static final BlockBehaviour.Properties STRAWBERRY_BUSH = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().strength(0F).sound(SoundType.CROP);
-		public static final BlockBehaviour.Properties VANILLA_VINE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().noCollission().instabreak().sound(SoundType.WEEPING_VINES);
-		public static final BlockBehaviour.Properties MINT = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().strength(0F).sound(SoundType.CROP);
+		public static final BlockBehaviour.Properties STRAWBERRY_BUSH = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().randomTicks().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY);
+		public static final BlockBehaviour.Properties VANILLA_VINE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().instabreak().noCollission().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY);
+		public static final BlockBehaviour.Properties MINT = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().randomTicks().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY);
 
 		public static final BlockBehaviour.Properties BANANA_STALK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(1.0F).sound(SoundType.STEM);
-		public static final BlockBehaviour.Properties BANANA_FROND = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().noCollission().instabreak().sound(SoundType.WEEPING_VINES);
+		public static final BlockBehaviour.Properties BANANA_FROND = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().instabreak().noCollission().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY);
 		public static final BlockBehaviour.Properties FROND_THATCH = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(0.5F).sound(SoundType.NETHER_SPROUTS);
 
-		public static final BlockBehaviour.Properties ADZUKI_SPROUTS = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().strength(0F).sound(SoundType.CROP);
+		public static final BlockBehaviour.Properties ADZUKI_SPROUTS = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY);
 		public static final BlockBehaviour.Properties ADZUKI_SOIL = BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(0.5F).randomTicks().sound(SoundType.ROOTED_DIRT);
-		public static final BlockBehaviour.Properties MAGIC_BEANS = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).noCollission().instabreak().pushReaction(PushReaction.DESTROY).sound(SoundType.CROP);
-		public static final BlockBehaviour.Properties BEANSTALK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASS).strength(1.0F).isSuffocating((state, reader, pos) -> false).sound(SoundType.STEM);
-		public static final BlockBehaviour.Properties BEANSTALK_THORNS = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).noCollission().strength(0.2F).sound(SoundType.FUNGUS);
+		public static final BlockBehaviour.Properties MAGIC_BEANS = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).noCollission().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY);
+		public static final BlockBehaviour.Properties BEANSTALK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASS).strength(1.0F).isSuffocating((state, reader, pos) -> false).sound(SoundType.STEM).pushReaction(PushReaction.DESTROY);
+		public static final BlockBehaviour.Properties BEANSTALK_THORNS = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).noCollission().strength(0.2F).sound(SoundType.FUNGUS).pushReaction(PushReaction.DESTROY);
 
-		public static final BlockBehaviour.Properties CHOCOLATE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.5F).sound(SoundType.WOOL);
-		public static final BlockBehaviour.Properties STRAWBERRY_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(0.5F).sound(SoundType.WOOL);
-		public static final BlockBehaviour.Properties VANILLA_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.5F).sound(SoundType.WOOL);
-		public static final BlockBehaviour.Properties BANANA_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).sound(SoundType.WOOL);
-		public static final BlockBehaviour.Properties MINT_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(0.5F).sound(SoundType.WOOL);
-		public static final BlockBehaviour.Properties ADZUKI_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(0.5F).sound(SoundType.WOOL);
+		public static final BlockBehaviour.Properties CHOCOLATE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY);
+		public static final BlockBehaviour.Properties STRAWBERRY_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY);
+		public static final BlockBehaviour.Properties VANILLA_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY);
+		public static final BlockBehaviour.Properties BANANA_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY);
+		public static final BlockBehaviour.Properties MINT_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY);
+		public static final BlockBehaviour.Properties ADZUKI_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY);
 
-		public static final BlockBehaviour.Properties CHOCOLATE_CANDLE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.5F).sound(SoundType.WOOL).lightLevel(litBlockEmission(3));
-		public static final BlockBehaviour.Properties STRAWBERRY_CANDLE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(0.5F).sound(SoundType.WOOL).lightLevel(litBlockEmission(3));
-		public static final BlockBehaviour.Properties VANILLA_CANDLE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.5F).sound(SoundType.WOOL).lightLevel(litBlockEmission(3));
-		public static final BlockBehaviour.Properties BANANA_CANDLE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).sound(SoundType.WOOL).lightLevel(litBlockEmission(3));
-		public static final BlockBehaviour.Properties MINT_CANDLE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(0.5F).sound(SoundType.WOOL).lightLevel(litBlockEmission(3));
-		public static final BlockBehaviour.Properties ADZUKI_CANDLE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(0.5F).sound(SoundType.WOOL).lightLevel(litBlockEmission(3));
+		public static final BlockBehaviour.Properties CHOCOLATE_CANDLE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY).lightLevel(litBlockEmission(3));
+		public static final BlockBehaviour.Properties STRAWBERRY_CANDLE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY).lightLevel(litBlockEmission(3));
+		public static final BlockBehaviour.Properties VANILLA_CANDLE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY).lightLevel(litBlockEmission(3));
+		public static final BlockBehaviour.Properties BANANA_CANDLE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY).lightLevel(litBlockEmission(3));
+		public static final BlockBehaviour.Properties MINT_CANDLE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY).lightLevel(litBlockEmission(3));
+		public static final BlockBehaviour.Properties ADZUKI_CANDLE_CAKE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY).lightLevel(litBlockEmission(3));
 
 		public static final BlockBehaviour.Properties VANILLA_POD_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(0.5F, 2.5F).sound(SoundType.GRASS);
 		public static final BlockBehaviour.Properties DRIED_VANILLA_POD_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.5F, 2.5F).sound(SoundType.GRASS);
 		public static final BlockBehaviour.Properties BANANA_BUNDLE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).instrument(NoteBlockInstrument.DIDGERIDOO).strength(2.5F).sound(SoundType.WOOD);
 
-		public static final BlockBehaviour.Properties STRAWBERRY_BASKET = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD);
-		public static final BlockBehaviour.Properties WHITE_STRAWBERRY_BASKET = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD);
-		public static final BlockBehaviour.Properties BANANA_CRATE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.STEM);
-		public static final BlockBehaviour.Properties MINT_BASKET = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD);
-		public static final BlockBehaviour.Properties ADZUKI_CRATE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD);
-		public static final BlockBehaviour.Properties ROASTED_ADZUKI_CRATE = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD);
+		public static final BlockBehaviour.Properties STRAWBERRY_BASKET = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).ignitedByLava().instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD);
+		public static final BlockBehaviour.Properties WHITE_STRAWBERRY_BASKET = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).ignitedByLava().instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD);
+		public static final BlockBehaviour.Properties BANANA_CRATE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).ignitedByLava().instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.STEM);
+		public static final BlockBehaviour.Properties MINT_BASKET = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).ignitedByLava().instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD);
+		public static final BlockBehaviour.Properties ADZUKI_CRATE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).ignitedByLava().instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD);
+		public static final BlockBehaviour.Properties ROASTED_ADZUKI_CRATE = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).ignitedByLava().instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD);
 
 		private static ToIntFunction<BlockState> litBlockEmission(int level) {
 			return (state) -> state.getValue(BlockStateProperties.LIT) ? level : 0;
