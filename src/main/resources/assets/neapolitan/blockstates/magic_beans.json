@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "x": 180,
+      "model": "neapolitan:block/magic_beans"
+    },
+    "facing=east": {
+      "x": 90,
+      "y": 90,
+      "model": "neapolitan:block/magic_beans"
+    },
+    "facing=north": {
+      "x": 90,
+      "model": "neapolitan:block/magic_beans"
+    },
+    "facing=south": {
+      "x": 90,
+      "y": 180,
+      "model": "neapolitan:block/magic_beans"
+    },
+    "facing=up": {
+      "model": "neapolitan:block/magic_beans"
+    },
+    "facing=west": {
+      "x": 90,
+      "y": 270,
+      "model": "neapolitan:block/magic_beans"
+    }
+  }
+}

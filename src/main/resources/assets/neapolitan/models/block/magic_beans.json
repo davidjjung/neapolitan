@@ -1,0 +1,16 @@
+{
+    "ambientocclusion": false,
+    "textures": {
+        "particle": "neapolitan:block/magic_beans",
+        "beans": "neapolitan:block/magic_beans"
+    },
+    "elements": [
+        {   "from": [ 0, 0.1, 0 ],
+            "to": [ 16, 0.1, 16 ],
+            "faces": {
+                "up": { "uv": [ 16, 0, 0, 16 ], "texture": "#beans" },
+                "down": { "uv": [ 0, 0, 16, 16 ], "texture": "#beans" }
+            }
+        }
+    ]
+}

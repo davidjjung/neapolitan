@@ -11,12 +11,14 @@ import com.teamabnormals.neapolitan.common.block.*;
 import com.teamabnormals.neapolitan.core.Neapolitan;
 import com.teamabnormals.neapolitan.core.other.NeapolitanCauldronInteractions;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanItems.NeapolitanFoods;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.RegistryObject;
@@ -79,6 +81,7 @@ public class NeapolitanBlocks {
 
 	public static final RegistryObject<Block> ADZUKI_SPROUTS = HELPER.createBlockNoItem("adzuki_sprouts", () -> new AdzukiSproutsBlock(NeapolitanBlockProperties.ADZUKI_SPROUTS));
 	public static final RegistryObject<Block> ADZUKI_SOIL = HELPER.createBlock("adzuki_soil", () -> new AdzukiSoilBlock(NeapolitanBlockProperties.ADZUKI_SOIL));
+	public static final RegistryObject<Block> MAGIC_BEANS = HELPER.createBlock("magic_beans", () -> new MagicBeansBlock(NeapolitanBlockProperties.MAGIC_BEANS));
 	public static final RegistryObject<Block> BEANSTALK = HELPER.createBlock("beanstalk", () -> new BeanstalkBlock(NeapolitanBlockProperties.BEANSTALK));
 	public static final RegistryObject<Block> BEANSTALK_THORNS = HELPER.createBlock("beanstalk_thorns", () -> new BeanstalkThornsBlock(NeapolitanBlockProperties.BEANSTALK_THORNS));
 
@@ -221,6 +224,7 @@ public class NeapolitanBlocks {
 				)
 				.tab(NATURAL_BLOCKS)
 				.addItemsAfter(of(Blocks.ROOTED_DIRT), ADZUKI_SOIL)
+				.addItemsAfter(of(Items.COCOA_BEANS), MAGIC_BEANS)
 				.addItemsAfter(of(Blocks.CACTUS), BEANSTALK, BEANSTALK_THORNS)
 				.addItemsAfter(of(Blocks.MELON), BANANA_BUNDLE)
 				.addItemsAfter(of(Blocks.HAY_BLOCK), VANILLA_POD_BLOCK, DRIED_VANILLA_POD_BLOCK)
@@ -259,6 +263,7 @@ public class NeapolitanBlocks {
 
 		public static final BlockBehaviour.Properties ADZUKI_SPROUTS = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().strength(0F).sound(SoundType.CROP);
 		public static final BlockBehaviour.Properties ADZUKI_SOIL = BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(0.5F).randomTicks().sound(SoundType.ROOTED_DIRT);
+		public static final BlockBehaviour.Properties MAGIC_BEANS = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).noCollission().instabreak().pushReaction(PushReaction.DESTROY).sound(SoundType.CROP);
 		public static final BlockBehaviour.Properties BEANSTALK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASS).strength(1.0F).isSuffocating((state, reader, pos) -> false).sound(SoundType.STEM);
 		public static final BlockBehaviour.Properties BEANSTALK_THORNS = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).noCollission().strength(0.2F).sound(SoundType.FUNGUS);
 

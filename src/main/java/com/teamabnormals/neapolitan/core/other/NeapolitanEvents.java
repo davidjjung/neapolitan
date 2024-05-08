@@ -222,7 +222,7 @@ public class NeapolitanEvents {
 
 		TradeUtil.addRareWandererTrades(event,
 				new BlueprintTrade(1, NeapolitanItems.WHITE_STRAWBERRIES.get(), 1, 8, 1),
-				new BlueprintTrade(3, NeapolitanItems.MAGIC_BEANS.get(), 1, 6, 1)
+				new BlueprintTrade(3, NeapolitanBlocks.MAGIC_BEANS.get().asItem(), 1, 6, 1)
 		);
 	}
 }

@@ -60,6 +60,7 @@
 
   "block.neapolitan.adzuki_sprouts": "Adzuki Sprouts",
   "block.neapolitan.adzuki_soil": "Adzuki Soil",
+  "block.neapolitan.magic_beans": "Magic Beans",
   "block.neapolitan.beanstalk": "Beanstalk",
   "block.neapolitan.beanstalk_thorns": "Beanstalk Thorns",
   
@@ -219,7 +220,6 @@
   "item.neapolitan.adzuki_stew": "Adzuki Stew",
   "item.neapolitan.adzuki_ice_cream": "Adzuki Ice Cream",
   "item.neapolitan.adzuki_milkshake": "Adzuki Milkshake",
-  "item.neapolitan.magic_beans": "Magic Beans",
   
   "item.neapolitan.chocolate_strawberries": "Chocolate Strawberries",
   "item.neapolitan.white_strawberries": "White Strawberries",
