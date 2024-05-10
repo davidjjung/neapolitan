@@ -103,8 +103,8 @@ public class NeapolitanBlocks {
 	public static final RegistryObject<Block> ADZUKI_CRATE = HELPER.createBlock("adzuki_crate", () -> new BlueprintDirectionalBlock(NeapolitanBlockProperties.ADZUKI_CRATE));
 	public static final RegistryObject<Block> ROASTED_ADZUKI_CRATE = HELPER.createBlock("roasted_adzuki_crate", () -> new BlueprintDirectionalBlock(NeapolitanBlockProperties.ROASTED_ADZUKI_CRATE));
 
-	public static final RegistryObject<Block> CHIMPANZEE_HEAD = HELPER.createBlockNoItem("chimpanzee_head", () -> new NeapolitanSkullBlock(NeapolitanSkullTypes.CHIMPANZEE, BlockBehaviour.Properties.of().strength(1.0F)));
-	public static final RegistryObject<Block> CHIMPANZEE_WALL_HEAD = HELPER.createBlockNoItem("chimpanzee_wall_head", () -> new NeapolitanWallSkullBlock(NeapolitanSkullTypes.CHIMPANZEE, BlockBehaviour.Properties.of().strength(1.0F).lootFrom(() -> CHIMPANZEE_HEAD.get())));
+	public static final RegistryObject<Block> CHIMPANZEE_HEAD = HELPER.createBlockNoItem("chimpanzee_head", () -> new NeapolitanSkullBlock(NeapolitanSkullTypes.CHIMPANZEE, BlockBehaviour.Properties.of().strength(1.0F).pushReaction(PushReaction.DESTROY)));
+	public static final RegistryObject<Block> CHIMPANZEE_WALL_HEAD = HELPER.createBlockNoItem("chimpanzee_wall_head", () -> new NeapolitanWallSkullBlock(NeapolitanSkullTypes.CHIMPANZEE, BlockBehaviour.Properties.of().strength(1.0F).pushReaction(PushReaction.DESTROY).lootFrom(() -> CHIMPANZEE_HEAD.get())));
 
 	public static final RegistryObject<Block> VANILLA_CANDLE_CAKE = HELPER.createBlockNoItem("vanilla_candle_cake", () -> new FlavoredCandleCakeBlock(VANILLA_CAKE, Blocks.CANDLE, NeapolitanBlockProperties.VANILLA_CANDLE_CAKE));
 	public static final RegistryObject<Block> WHITE_VANILLA_CANDLE_CAKE = HELPER.createBlockNoItem("white_vanilla_candle_cake", () -> new FlavoredCandleCakeBlock(VANILLA_CAKE, Blocks.WHITE_CANDLE, NeapolitanBlockProperties.VANILLA_CANDLE_CAKE));
