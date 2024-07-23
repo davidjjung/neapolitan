@@ -11,6 +11,10 @@
     {
       "id": "caverns_and_chasms:tmt",
       "required": false
+    },
+    {
+      "id": "savage_and_ravage:spore_bomb",
+      "required": false
     }
   ]
 }

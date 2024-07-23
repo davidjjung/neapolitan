@@ -26,4 +26,5 @@ public class NeapolitanConstants {
 	public static final ResourceLocation MUD_BALL = new ResourceLocation(ENVIRONMENTAL, "mud_ball");
 	public static final ResourceLocation CREEPIE = new ResourceLocation(SAVAGE_AND_RAVAGE, "creepie");
 	public static final ResourceLocation GRIEFER_HELMET = new ResourceLocation(SAVAGE_AND_RAVAGE, "griefer_helmet");
+	public static final ResourceLocation SPORE_BOMB = new ResourceLocation(SAVAGE_AND_RAVAGE, "spore_bomb");
 }
