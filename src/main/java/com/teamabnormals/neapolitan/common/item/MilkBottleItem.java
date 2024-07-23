@@ -11,6 +11,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
 
 import java.util.Random;
 
@@ -52,7 +54,9 @@ public class MilkBottleItem extends Item {
 			if (effects.size() > 0) {
 				Random rand = new Random();
 				MobEffectInstance effectToRemove = effects.get(rand.nextInt(effects.size()));
-				entity.removeEffect(effectToRemove.getEffect());
+				if (!MinecraftForge.EVENT_BUS.post(new MobEffectEvent.Remove(entity, effectToRemove.getEffect()))) {
+					entity.removeEffect(effectToRemove.getEffect());
+				}
 			}
 		}
 	}
